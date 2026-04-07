@@ -9,6 +9,7 @@ class DatabaseSettings(BaseModel):
     PASSWORD: str
     NAME: str
 
+
     @computed_field
     @property
     def URI(self) -> PostgresDsn:
@@ -31,6 +32,8 @@ class Settings(BaseSettings):
         env_ignore_empty=True,
         env_nested_delimiter="__",
     )
+
+    DEBUG: bool
 
     DB: DatabaseSettings
 
