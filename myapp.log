@@ -1,0 +1,2 @@
+ERROR:root:The first argument is foo and the second argument is bar2
+CRITICAL:root:Critical message
