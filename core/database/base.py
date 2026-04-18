@@ -1,4 +1,4 @@
-from sqlalchemy import URL, create_engine, make_url
+from sqlalchemy import URL, create_engine, make_url, MetaData
 from core.settings import settings
 from sqlalchemy.orm import sessionmaker
 
@@ -6,7 +6,7 @@ url = make_url(settings.DB.URI.unicode_string())
 
 engine = create_engine(
     url,
-    echo=True,
+    echo="debug",
     echo_pool=True,
     pool_size=5,
     max_overflow=10,
@@ -17,3 +17,5 @@ engine = create_engine(
 )
 
 SessionFactory = sessionmaker(engine)
+
+metadata = MetaData()
