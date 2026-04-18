@@ -1,6 +1,7 @@
 from pydantic import BaseModel, computed_field, PostgresDsn, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from typing import Literal, Self
+from sqlalchemy.engine.interfaces import IsolationLevel
 import urllib.parse
 
 
@@ -18,6 +19,7 @@ class DatabaseSettings(BaseModel):
     PORT: int = 5432
     PASSWORD: str
     NAME: str
+    ISOLATION_LEVEL: IsolationLevel = 'READ COMMITTED'
 
     QUERY: DatabaseQuerySettings = DatabaseQuerySettings()
 
